@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keila Beatriz</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/cb0c17d269.js" crossorigin="anonymous"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    
+</head>
+<body>
+    <header>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">< sobre ></a></li>
+          <li><a href="#">< portfolio ></a></li>
+          <li><a href="#">< contato ></a></li>
+        </u>
+      </nav>
+      <div>
+        <h1 class="site-title">keila beatriz</h1>
+        <h2 class="site-subtitle">.estudante</h2>
+      </div>
+    </header>
+    <section class="sobre">
+      <figure>
+        <img class="perfil" src="imgs/perfil.png" alt="Perfil">
+      </figure>
+      <h2>.sobre</h2>
+      <p>Eu sou Keila Beatriz e tenho 23 anos. Nasci no estado de São Paulo, na cidade de São Caetano do Sul, mas cresci em Minas Gerais e moro em Jaboatão dos Guararapes há 5 anos. Sou cristã e amo livros. Curto assistir filmes e series, ouvir metal e jogos single-player.
+      Gosto muito da área de tecnologia, mas também tenho experiência em design gráfico, que certamente tem um lugar no meu coração.
+      Estudo Análise e Desenvolvimento de Sistemas na Faculdade SENAC em parceria com o Porto Digital na cidade do Recife</p>
+    </section>
+    <section class="portfolio">
+      <h2>.portfólio</h2>
+      <h3>html, css</h3>
+        <div class="grid">
+          <figure>
+            <img class="img-portfolio" src="imgs/curriculo.png" alt="Curriculo">
+            <figcaption>atividade de linguagens para web: curriculo</figcaption>
+          </figure>
+          <figure>
+            <img class="img-portfolio" src="imgs/tabela.png" alt=">Mobile">
+            <figcaption>atividade de linguagens para web: página comparando produtos</figcaption>
+          </figure>
+          <figure>
+            <img class="img-portfolio" src="imgs/hackertech.png" alt="pagina com acessibilidade" onmouseover="this.src='imgs/acesso.png'" onmouseout="this.src='imgs/hackertech.png'">
+            <figcaption>atividade de linguagens para web: página com acessibilidade</figcaption>
+          </figure>
+        </div>
+        
+        <h3>projetos scratch</h3>
+        <div class="grid">
+          <figure>
+            <img class="img-portfolio" src="imgs/covidquiz.png" alt="CovidQuiz">
+            <figcaption>projeto para algoritmos e estrutura de dados=<a href="https://scratch.mit.edu/projects/390968796/" target="_blank">"quiz sobre corona virus"</a></figcaption>
+          </figure>
+          <figure>
+            <img class="img-portfolio" src="imgs/dinosendgame.png" alt=">Dino's Endgame">
+            <figcaption>projeto para algoritmos e estrutura de dados=<a href="https://scratch.mit.edu/projects/384576597/" target="_blank">"dino's endgame"</a></figcaption>
+          </figure>
+          <figure>
+            <img class="img-portfolio" src="imgs/cs50.png" alt="CS50 Project">
+            <figcaption>projeto para o curso cs50 da harvard<a href="https://scratch.mit.edu/projects/390968796/" target="_blank">="what about second breakfast?"</a></figcaption>
+          </figure>
+        </div>
+    </section>
+    <section class="meucontato">
+        <h2>.contato</h2>
+        <div class="icons">
+          <a href="https://www.linkedin.com/in/keila-bvs/ linkedin" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/keila-bvs/ linkedin" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://github.com/keila66" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+    </section>
+    <button value="1" id="botao_acess">ACESSO OFF</button>
+  
+    <script>
+      $("DOMContentLoaded", function(){
+      
+        var url1 = "css/estilos.css";
+        var url2 = "css/estilos2.css";
+        var botao = document.getElementById("botao_acess");
+      
+        var css = localStorage.getItem("css");
+        if(!css){
+           criaTag(url1);
+        }else{
+           if(css == url2){
+              botao.value = 2;
+              botao.textContent = "ACESSO ON";
+           }
+           criaTag(css);
+        }
+        function criaTag(url){
+            var estilo = document.createElement("link");
+            estilo.rel = "stylesheet";
+            estilo.type = "text/css";
+            estilo.className = "acess";
+            estilo.href = url;
+            document.body.appendChild(estilo);
+         }
+        botao.onclick = function(){
+        var tag = document.getElementsByClassName("acess");
+      
+            if(this.value == 1){
+               this.textContent = "ACESSO ON";
+               this.value = 2;
+               tag[0].href = url2;
+               localStorage.setItem("css", url2);
+            }else{
+               this.textContent = "ACESSO OFF";
+               this.value = 1;
+               tag[0].href = url1;
+               localStorage.setItem("css", url1);
+            }
+      
+         }
+      
+      });
+        </script>    
+</body>
+
+</html>
